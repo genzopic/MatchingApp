@@ -26,12 +26,11 @@ class BottomControlView: UIView {
         baseStackView.spacing = 10
         baseStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        baseStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
-
-
+        baseStackView.anchor(top:topAnchor, bottom: bottomAnchor,left: leftAnchor,right: rightAnchor, leftPadding: 10, rightPadding: 10)
+//        baseStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//        baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
+//        baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         
     }
     
@@ -62,10 +61,11 @@ class BottomButtonView: UIView {
         
         addSubview(button!)
 
-        button?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        button?.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        button?.widthAnchor.constraint(equalToConstant: width).isActive = true
-        button?.heightAnchor.constraint(equalToConstant: width).isActive = true
+        button?.anchor(centerY:centerYAnchor, centerX:centerXAnchor, width: width, height: width)
+//        button?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        button?.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        button?.widthAnchor.constraint(equalToConstant: width).isActive = true
+//        button?.heightAnchor.constraint(equalToConstant: width).isActive = true
 
     }
     
