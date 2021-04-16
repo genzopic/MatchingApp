@@ -21,12 +21,17 @@ class HomeViewController: UIViewController {
 
         let bottomControllView = BottomControlView()
         bottomControllView.anchor(height:120)
+        
         let stackView = UIStackView(arrangedSubviews: [topControlView,cardView,bottomControllView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        
         self.view.addSubview(stackView)
-        stackView.anchor(top:view.safeAreaLayoutGuide.topAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
-             
+        stackView.anchor(top:view.safeAreaLayoutGuide.topAnchor,
+                         bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                         left: view.leftAnchor,
+                         right: view.rightAnchor)
+
 
     }
 
