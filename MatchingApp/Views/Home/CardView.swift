@@ -9,99 +9,40 @@ import UIKit
 
 class CardView: UIView {
     
-    let cardImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "test-image")
-        iv.backgroundColor = .blue
-        iv.layer.cornerRadius = 10
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        return iv
-    }()
+    //
+    private let gradientLayer = CAGradientLayer()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .heavy)
-        label.textColor = .white
-        label.text = "Taro, 22"
-        
-        return label
-    }()
-    
-    let infoButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "info.circle.fill")?.resize(size: .init(width: 40, height: 40)), for: .normal)
-        button.tintColor = .white
-        button.imageView?.contentMode = .scaleAspectFit
-        
-        return button
-    }()
-    
-    let regidenceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textColor = .white
-        label.text = "日本, 大阪"
-
-        return label
-        
-    }()
-    
-    let hobbyLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .regular)
-        label.textColor = .white
-        label.text = "ランニング"
-
-        return label
-        
-    }()
-
-    let introductionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .regular)
-        label.textColor = .white
-        label.text = "走り回るのが大好きです"
-
-        return label
-        
-    }()
-
-    let goodLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.textColor = UIColor.rgb(red: 137, green: 223, blue: 86)
-        label.text = "GOOD"
-        label.textAlignment = .center
-        label.layer.borderWidth = 3
-        label.layer.borderColor = UIColor.rgb(red: 137, green: 223, blue: 86).cgColor
-        label.layer.cornerRadius = 10
-        label.alpha = 0
-        return label
-    }()
-    
-    let nopeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.textColor = UIColor.rgb(red: 222, green: 110, blue: 110)
-        label.text = "NOPE"
-        label.textAlignment = .center
-        label.layer.borderWidth = 3
-        label.layer.borderColor = UIColor.rgb(red: 222, green: 110, blue: 110).cgColor
-        label.layer.cornerRadius = 10
-        label.alpha = 0
-        return label
-    }()
+    // MARK: UIViews
+    private let cardImageView = CardImageView(imageName: "test-image")
+    private let infoButton = UIButton(type: .system).createCardInfoButton()
+    private let nameLabel = CardInfoLabel(text: "Taro, 22", font: .systemFont(ofSize: 40, weight: .heavy))
+    private let regidenceLabel = CardInfoLabel(text: "日本, 大阪", font: .systemFont(ofSize: 20, weight: .regular))
+    private let hobbyLabel = CardInfoLabel(text: "ランニング", font: .systemFont(ofSize: 25, weight: .regular))
+    private let introductionLabel = CardInfoLabel(text: "走り回るのが大好きです", font: .systemFont(ofSize: 25, weight: .regular))
+    private let goodLabel = CardInfoLabel(text: "GOOD", textColor: UIColor.rgb(red: 137, green: 223, blue: 86))
+    private let nopeLabel = CardInfoLabel(text: "NOPE", textColor: UIColor.rgb(red: 222, green: 110, blue: 110))
     
     // MARK: -
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupLayout()
+        setupGradientLayer()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView))
         self.addGestureRecognizer(panGesture)
         
+    }
+    
+    // したを少し黒くして文字を見やすくする
+    private func setupGradientLayer() {
+        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
+        gradientLayer.locations = [0.3,1.1]
+        cardImageView.layer.addSublayer(gradientLayer)
+    }
+    // ビューが作成されて表示される前に呼ばれる
+    override func layoutSubviews() {
+        gradientLayer.frame = self.bounds
     }
     
     @objc private func panCardView(gesture: UIPanGestureRecognizer) {

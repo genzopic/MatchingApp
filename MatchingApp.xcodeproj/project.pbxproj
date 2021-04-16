@@ -19,6 +19,7 @@
 		7304C123262922DA00276DF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7304C122262922DA00276DF0 /* GoogleService-Info.plist */; };
 		7304C1322629247A00276DF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1312629247A00276DF0 /* RegisterViewController.swift */; };
 		7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1372629285D00276DF0 /* RegisterTextField.swift */; };
+		7304C13C26292A8400276DF0 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */; };
 		7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAF92625B89C0032C898 /* AppDelegate.swift */; };
 		7381FAFC2625B89C0032C898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAFB2625B89C0032C898 /* SceneDelegate.swift */; };
 		7381FAFE2625B89C0032C898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAFD2625B89C0032C898 /* HomeViewController.swift */; };
@@ -26,6 +27,10 @@
 		7381FB062625B89D0032C898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7381FB042625B89D0032C898 /* LaunchScreen.storyboard */; };
 		7381FB152625C5A20032C898 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FB142625C5A20032C898 /* BottomControlView.swift */; };
 		7381FB1A2625DCCE0032C898 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FB192625DCCE0032C898 /* UIImage-Extension.swift */; };
+		738E442E26292F31008FB8DC /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E442D26292F31008FB8DC /* RegisterButton.swift */; };
+		738E44312629326D008FB8DC /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E44302629326D008FB8DC /* CardInfoLabel.swift */; };
+		738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443326293C74008FB8DC /* UIButton-Extension.swift */; };
+		738E443726293D84008FB8DC /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443626293D84008FB8DC /* CardImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,7 @@
 		7304C122262922DA00276DF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7304C1312629247A00276DF0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7304C1372629285D00276DF0 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 		7381FAF62625B89C0032C898 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7381FAF92625B89C0032C898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7381FAFB2625B89C0032C898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,10 @@
 		7381FB072625B89D0032C898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7381FB142625C5A20032C898 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		7381FB192625DCCE0032C898 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		738E442D26292F31008FB8DC /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		738E44302629326D008FB8DC /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
+		738E443326293C74008FB8DC /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		738E443626293D84008FB8DC /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		C1563188793593FC8C4BAF69 /* Pods-MatchingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingApp.release.xcconfig"; path = "Target Support Files/Pods-MatchingApp/Pods-MatchingApp.release.xcconfig"; sourceTree = "<group>"; };
 		F964AA5A614A9A4C98F8B63F /* Pods_MatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,6 +82,8 @@
 				7381FB142625C5A20032C898 /* BottomControlView.swift */,
 				7304C10B2626A1C900276DF0 /* TopControlView.swift */,
 				7304C11C2627D89B00276DF0 /* CardView.swift */,
+				738E44302629326D008FB8DC /* CardInfoLabel.swift */,
+				738E443626293D84008FB8DC /* CardImageView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -80,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				7304C1372629285D00276DF0 /* RegisterTextField.swift */,
+				7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */,
+				738E442D26292F31008FB8DC /* RegisterButton.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -143,6 +157,7 @@
 				7381FB192625DCCE0032C898 /* UIImage-Extension.swift */,
 				7304C1192627CD6000276DF0 /* UIView-Extension.swift */,
 				7304C11F2627FE9D00276DF0 /* UIColor-Extension.swift */,
+				738E443326293C74008FB8DC /* UIButton-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -287,16 +302,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738E44312629326D008FB8DC /* CardInfoLabel.swift in Sources */,
 				7304C10C2626A1C900276DF0 /* TopControlView.swift in Sources */,
 				7304C1322629247A00276DF0 /* RegisterViewController.swift in Sources */,
+				7304C13C26292A8400276DF0 /* RegisterTitleLabel.swift in Sources */,
 				7381FAFE2625B89C0032C898 /* HomeViewController.swift in Sources */,
 				7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */,
+				738E443726293D84008FB8DC /* CardImageView.swift in Sources */,
 				7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */,
+				738E442E26292F31008FB8DC /* RegisterButton.swift in Sources */,
 				7304C11A2627CD6000276DF0 /* UIView-Extension.swift in Sources */,
 				7304C1202627FE9D00276DF0 /* UIColor-Extension.swift in Sources */,
 				7381FAFC2625B89C0032C898 /* SceneDelegate.swift in Sources */,
 				7381FB152625C5A20032C898 /* BottomControlView.swift in Sources */,
 				7304C11D2627D89B00276DF0 /* CardView.swift in Sources */,
+				738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */,
 				7381FB1A2625DCCE0032C898 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
