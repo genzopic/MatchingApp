@@ -48,11 +48,6 @@ class TopControlView: UIView {
         
         baseStackView.anchor(top:topAnchor,bottom: bottomAnchor,left: leftAnchor ,right: rightAnchor,leftPadding: 30,rightPadding: 30)
         
-//        baseStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-//        baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
-//        baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -30).isActive = true
-
     }
     
     private func setupBindings() {
