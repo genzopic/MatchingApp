@@ -32,6 +32,7 @@
 		738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443326293C74008FB8DC /* UIButton-Extension.swift */; };
 		738E443726293D84008FB8DC /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443626293D84008FB8DC /* CardImageView.swift */; };
 		73B711C9262A81D7009D762A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B711C8262A81D7009D762A /* RegisterViewModel.swift */; };
+		73B711CD262B2721009D762A /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B711CC262B2721009D762A /* Firebase-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		738E443326293C74008FB8DC /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		738E443626293D84008FB8DC /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		73B711C8262A81D7009D762A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		73B711CC262B2721009D762A /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
 		C1563188793593FC8C4BAF69 /* Pods-MatchingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingApp.release.xcconfig"; path = "Target Support Files/Pods-MatchingApp/Pods-MatchingApp.release.xcconfig"; sourceTree = "<group>"; };
 		F964AA5A614A9A4C98F8B63F /* Pods_MatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				7304C1192627CD6000276DF0 /* UIView-Extension.swift */,
 				7304C11F2627FE9D00276DF0 /* UIColor-Extension.swift */,
 				738E443326293C74008FB8DC /* UIButton-Extension.swift */,
+				73B711CC262B2721009D762A /* Firebase-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */,
 				738E443726293D84008FB8DC /* CardImageView.swift in Sources */,
 				73B711C9262A81D7009D762A /* RegisterViewModel.swift in Sources */,
+				73B711CD262B2721009D762A /* Firebase-Extension.swift in Sources */,
 				7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */,
 				738E442E26292F31008FB8DC /* RegisterButton.swift in Sources */,
 				7304C11A2627CD6000276DF0 /* UIView-Extension.swift in Sources */,

@@ -14,9 +14,8 @@ import FirebaseFirestore
 class RegisterViewController: UIViewController {
     
     private let disposeBug = DisposeBag()
-    private let viewModel = RegisterViewModel()
-    
-    
+    private let viewModel = RegiserViewModel()
+ 
     // MARK: UIViews
     private let titleLabel = RegisterTitleLabel()
     private let nameTextField = RegisterTextField(placeHolder: "名前")
@@ -71,6 +70,7 @@ class RegisterViewController: UIViewController {
     //
     private func setupBindings() {
         
+        // textFieldのbinding
         nameTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
@@ -101,48 +101,33 @@ class RegisterViewController: UIViewController {
             .asDriver()
             .drive { [weak self] (_) in
                 // 登録時の処理
-                self?.createUserToFireAuth()
+                self?.createUser()
+            }
+            .disposed(by: disposeBug)
+
+        // viewModelのbinding
+        viewModel.validRegisterDriver
+            .drive { (validAll) in
+                self.registerButton.isEnabled = validAll
+                self.registerButton.backgroundColor = validAll ? .rgb(red: 227, green: 48, blue: 78) : .init(white: 0.7, alpha: 1)
             }
             .disposed(by: disposeBug)
 
     }
     
-    private func createUserToFireAuth() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (auth, err) in
-            if let err = err {
-                print("auth createUser err: ", err)
-                return
+    private func createUser() {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        let name = nameTextField.text
+        Auth.createUserToFireAuth(email: email, password: password, name: name) { success in
+            if success == true {
+                print("処理が完了")
+                self.dismiss(animated: true, completion: nil)
+             } else {
+                
             }
-            guard let uid = auth?.user.uid else { return }
-            print("auth createUser Success uid: ",uid)
-            self.setUserDataToFirestore(uid: uid,email: email)
-            
-            
         }
-        
     }
     
-    private func setUserDataToFirestore(uid: String, email: String) {
-        guard let name = nameTextField.text else { return }
-        let doc = [
-            "name": name,
-            "email": email,
-            "creatAt": Timestamp()
-        ] as [String : Any]
-        
-        Firestore.firestore().collection("users").document(uid).setData(doc) { (err) in
-            if let err = err {
-                print("set firestore err: ",err)
-                return
-            }
-            print("set firestore success uid: ", uid)
-            
-        }
-        
-        
-    }
     
 }
