@@ -9,10 +9,13 @@ import UIKit
 //
 import RxSwift
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
     
     private let disposeBug = DisposeBag()
+    private let viewModel = RegisterViewModel()
+    
     
     // MARK: UIViews
     private let titleLabel = RegisterTitleLabel()
@@ -72,7 +75,7 @@ class RegisterViewController: UIViewController {
             .asDriver()
             .drive { [weak self] text in
                 // textの情報をハンドルする
-
+                self?.viewModel.nameTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBug)
 
@@ -80,6 +83,7 @@ class RegisterViewController: UIViewController {
             .asDriver()
             .drive { [weak self] text in
                 // textの情報をハンドルする
+                self?.viewModel.emailTextInput.onNext(text ?? "")
 
             }
             .disposed(by: disposeBug)
@@ -88,6 +92,7 @@ class RegisterViewController: UIViewController {
             .asDriver()
             .drive { [weak self] text in
                 // textの情報をハンドルする
+                self?.viewModel.passwordTextInput.onNext(text ?? "")
 
             }
             .disposed(by: disposeBug)
@@ -113,10 +118,31 @@ class RegisterViewController: UIViewController {
             }
             guard let uid = auth?.user.uid else { return }
             print("auth createUser Success uid: ",uid)
+            self.setUserDataToFirestore(uid: uid,email: email)
+            
             
         }
         
     }
     
+    private func setUserDataToFirestore(uid: String, email: String) {
+        guard let name = nameTextField.text else { return }
+        let doc = [
+            "name": name,
+            "email": email,
+            "creatAt": Timestamp()
+        ] as [String : Any]
+        
+        Firestore.firestore().collection("users").document(uid).setData(doc) { (err) in
+            if let err = err {
+                print("set firestore err: ",err)
+                return
+            }
+            print("set firestore success uid: ", uid)
+            
+        }
+        
+        
+    }
     
 }

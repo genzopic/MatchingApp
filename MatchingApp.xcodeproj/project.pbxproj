@@ -31,6 +31,7 @@
 		738E44312629326D008FB8DC /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E44302629326D008FB8DC /* CardInfoLabel.swift */; };
 		738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443326293C74008FB8DC /* UIButton-Extension.swift */; };
 		738E443726293D84008FB8DC /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443626293D84008FB8DC /* CardImageView.swift */; };
+		73B711C9262A81D7009D762A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B711C8262A81D7009D762A /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		738E44302629326D008FB8DC /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
 		738E443326293C74008FB8DC /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		738E443626293D84008FB8DC /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
+		73B711C8262A81D7009D762A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C1563188793593FC8C4BAF69 /* Pods-MatchingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchingApp.release.xcconfig"; path = "Target Support Files/Pods-MatchingApp/Pods-MatchingApp.release.xcconfig"; sourceTree = "<group>"; };
 		F964AA5A614A9A4C98F8B63F /* Pods_MatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				7381FAF92625B89C0032C898 /* AppDelegate.swift */,
 				7381FAFB2625B89C0032C898 /* SceneDelegate.swift */,
 				7381FB1C2625DCE20032C898 /* Extensions */,
+				73B711C7262A81BA009D762A /* ViewModel */,
 				7381FB132625C5860032C898 /* Views */,
 				7381FB112625C5560032C898 /* ViewsControllers */,
 				7381FB022625B89D0032C898 /* Assets.xcassets */,
@@ -160,6 +163,14 @@
 				738E443326293C74008FB8DC /* UIButton-Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73B711C7262A81BA009D762A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73B711C8262A81D7009D762A /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7A0B0BA3B4ACE6926C1FD8B2 /* Pods */ = {
@@ -309,6 +320,7 @@
 				7381FAFE2625B89C0032C898 /* HomeViewController.swift in Sources */,
 				7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */,
 				738E443726293D84008FB8DC /* CardImageView.swift in Sources */,
+				73B711C9262A81D7009D762A /* RegisterViewModel.swift in Sources */,
 				7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */,
 				738E442E26292F31008FB8DC /* RegisterButton.swift in Sources */,
 				7304C11A2627CD6000276DF0 /* UIView-Extension.swift in Sources */,
