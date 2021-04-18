@@ -6,20 +6,34 @@
 //
 
 import UIKit
+//
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
-
+    
+    let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("ログアウト", for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Auth.auth().currentUser?.uid == nil {
             let registerViewController = RegisterViewController()
-            registerViewController.modalPresentationStyle = .fullScreen
-            self.present(registerViewController, animated: true, completion: nil)
+            let nav = UINavigationController(rootViewController: registerViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
         }
-
+        
     }
     
     private func setupLayout() {
@@ -28,9 +42,9 @@ class HomeViewController: UIViewController {
         
         let topControlView = TopControlView()
         topControlView.anchor(height:100)
-
+        
         let cardView = CardView()
-
+        
         let bottomControllView = BottomControlView()
         bottomControllView.anchor(height:120)
         
@@ -39,13 +53,30 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
+        self.view.addSubview(logoutButton)
+        
         stackView.anchor(top:view.safeAreaLayoutGuide.topAnchor,
                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
                          left: view.leftAnchor,
                          right: view.rightAnchor)
-
+        logoutButton.anchor(bottom:view.bottomAnchor,left:view.leftAnchor,bottomPadding: 10, leftPadding: 10)
+        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
+        
     }
+    
+    @objc private func tappedLogoutButton() {
+        do {
+            try Auth.auth().signOut()
+            let registerViewController = RegisterViewController()
+            let nav = UINavigationController(rootViewController: registerViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
 
-
+        } catch {
+            print("ログアウトに失敗", error)
+        }
+    }
+    
+    
 }
 

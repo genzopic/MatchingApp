@@ -9,12 +9,12 @@ import UIKit
 
 class RegisterTitleLabel: UILabel {
     
-    init() {
+    init(text: String) {
         super.init(frame: .zero)
-        text = "Tinder"
-        font = .boldSystemFont(ofSize: 80)
-        textColor = .white
-        textAlignment = .center
+        self.text = text
+        self.font = .boldSystemFont(ofSize: 80)
+        self.textColor = .white
+        self.textAlignment = .center
 
     }
     
