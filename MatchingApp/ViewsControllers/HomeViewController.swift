@@ -8,8 +8,11 @@
 import UIKit
 //
 import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
+    
+    private var user: User?
     
     let logoutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -17,6 +20,8 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Life Cicle Methods
+    // 初期表示時
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,23 @@ class HomeViewController: UIViewController {
         
     }
     
+    // 画面に表示される直前に呼ばれます。
+    // viewDidLoadとは異なり毎回呼び出されます。
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Firestore.fetchUserFromFirestore(uid: uid) { (user) in
+            if let user = user {
+                self.user = user
+                
+            }
+        }
+        
+    }
+    
+    // 画面に表示された直後に呼ばれます
+    // viewDidLoadとは異なり毎回呼び出されます
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -35,6 +57,8 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
+    // MARK: - Methods
     
     private func setupLayout() {
         
