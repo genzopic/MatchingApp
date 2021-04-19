@@ -29,6 +29,9 @@
 		7381FB1A2625DCCE0032C898 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FB192625DCCE0032C898 /* UIImage-Extension.swift */; };
 		7389DCA5262D34FB00A33B19 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7389DCA4262D34FB00A33B19 /* PKHUD */; };
 		7389DCA9262D4B3600A33B19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389DCA8262D4B3600A33B19 /* User.swift */; };
+		7389DCAD262D7AA800A33B19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389DCAC262D7AA800A33B19 /* ProfileViewController.swift */; };
+		7389DCB1262D97B400A33B19 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389DCB0262D97B400A33B19 /* ProfileImageView.swift */; };
+		7389DCB5262D988800A33B19 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389DCB4262D988800A33B19 /* ProfileLabel.swift */; };
 		738E442E26292F31008FB8DC /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E442D26292F31008FB8DC /* RegisterButton.swift */; };
 		738E44312629326D008FB8DC /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E44302629326D008FB8DC /* CardInfoLabel.swift */; };
 		738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E443326293C74008FB8DC /* UIButton-Extension.swift */; };
@@ -59,6 +62,9 @@
 		7381FB142625C5A20032C898 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		7381FB192625DCCE0032C898 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		7389DCA8262D4B3600A33B19 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7389DCAC262D7AA800A33B19 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7389DCB0262D97B400A33B19 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		7389DCB4262D988800A33B19 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
 		738E442D26292F31008FB8DC /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		738E44302629326D008FB8DC /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
 		738E443326293C74008FB8DC /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				7381FAFD2625B89C0032C898 /* HomeViewController.swift */,
 				7304C1312629247A00276DF0 /* RegisterViewController.swift */,
 				73EDCA4D262BAE36000A3A92 /* LoginViewController.swift */,
+				7389DCAC262D7AA800A33B19 /* ProfileViewController.swift */,
 			);
 			path = ViewsControllers;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 		7381FB132625C5860032C898 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7389DCAF262D97A000A33B19 /* Profile */,
 				7304C1362629282300276DF0 /* Register */,
 				7304C1342629280F00276DF0 /* Home */,
 			);
@@ -182,6 +190,15 @@
 				7389DCA8262D4B3600A33B19 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7389DCAF262D97A000A33B19 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7389DCB0262D97B400A33B19 /* ProfileImageView.swift */,
+				7389DCB4262D988800A33B19 /* ProfileLabel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		73B711C7262A81BA009D762A /* ViewModel */ = {
@@ -350,8 +367,11 @@
 				7304C11A2627CD6000276DF0 /* UIView-Extension.swift in Sources */,
 				7304C1202627FE9D00276DF0 /* UIColor-Extension.swift in Sources */,
 				7381FAFC2625B89C0032C898 /* SceneDelegate.swift in Sources */,
+				7389DCB1262D97B400A33B19 /* ProfileImageView.swift in Sources */,
+				7389DCB5262D988800A33B19 /* ProfileLabel.swift in Sources */,
 				7381FB152625C5A20032C898 /* BottomControlView.swift in Sources */,
 				7304C11D2627D89B00276DF0 /* CardView.swift in Sources */,
+				7389DCAD262D7AA800A33B19 /* ProfileViewController.swift in Sources */,
 				738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */,
 				7381FB1A2625DCCE0032C898 /* UIImage-Extension.swift in Sources */,
 			);
