@@ -23,10 +23,10 @@ class CardView: UIView {
     private let nopeLabel = CardInfoLabel(text: "NOPE", textColor: UIColor.rgb(red: 222, green: 110, blue: 110))
     
     // MARK: -
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(user: User) {
+        super.init(frame: .zero)
         
-        setupLayout()
+        setupLayout(user: user)
         setupGradientLayer()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView))
@@ -48,10 +48,12 @@ class CardView: UIView {
     @objc private func panCardView(gesture: UIPanGestureRecognizer) {
 //        print("gesture: ",gesture.debugDescription)
         let transeration = gesture.translation(in: self)
+        guard let view = gesture.view else { return }
+        
         if gesture.state == .changed {
             self.handlePanChange(transeration: transeration)
         } else if gesture.state == .ended {
-            self.handlePanEnded()
+            self.handlePanEnded(view: view, transeration: transeration)
         }
 
     }
@@ -73,17 +75,30 @@ class CardView: UIView {
         
     }
     
-    private func handlePanEnded() {
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: []) {
-            self.transform = .identity
-            self.goodLabel.alpha = 0
-            self.nopeLabel.alpha = 0
-            self.layoutIfNeeded()
-        }
+    private func handlePanEnded(view: UIView, transeration: CGPoint) {
+        print("transeration.x: ", transeration.x)
+        if transeration.x <= -120 {
+            // 120以上左にカードをスワイプした時にカードを消す
+            view.removeCardViewAnimation(x: -600)
+            
+        } else if transeration.x > 120 {
+            // 120以上右にカードをスワイプした時にカードを消す
+            view.removeCardViewAnimation(x: 600)
+            
+        } else {
+            // 120未満のカードのスワイプは、カードを元の位置に戻す
+            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: []) {
+                view.transform = .identity
+                self.goodLabel.alpha = 0
+                self.nopeLabel.alpha = 0
+                self.layoutIfNeeded()
+            }
 
+        }
+        
     }
     
-    private func setupLayout() {
+    private func setupLayout(user: User) {
         
         let infoVerticalStackView = UIStackView(arrangedSubviews: [regidenceLabel,hobbyLabel,introductionLabel])
         infoVerticalStackView.axis = .vertical
@@ -92,6 +107,7 @@ class CardView: UIView {
         let baseStackView = UIStackView(arrangedSubviews: [infoVerticalStackView,infoButton])
         baseStackView.axis = .horizontal
         
+        // Viewの配置を作成
         addSubview(cardImageView)
         addSubview(nameLabel)
         addSubview(baseStackView)
@@ -105,6 +121,10 @@ class CardView: UIView {
         goodLabel.anchor(top:cardImageView.topAnchor,left: cardImageView.leftAnchor,width: 140, height: 55, topPadding: 25,leftPadding: 25)
         nopeLabel.anchor(top:cardImageView.topAnchor,right: cardImageView.rightAnchor,width: 140, height: 55, topPadding: 25,rightPadding: 25)
 
+        // ユーザー情報をViewに反映
+        nameLabel.text = user.name
+        introductionLabel.text = user.email
+        
     }
     
     required init?(coder: NSCoder) {

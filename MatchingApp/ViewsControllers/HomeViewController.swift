@@ -9,11 +9,18 @@ import UIKit
 //
 import FirebaseAuth
 import FirebaseFirestore
+import PKHUD
 
 class HomeViewController: UIViewController {
     
     private var user: User?
+    // 自分以外のユーザー情報
+    private var users = [User]()
     
+    // UI
+    let topControlView = TopControlView()
+    let cardView = UIView() // CardView()
+    let bottomControllView = BottomControlView()
     let logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("ログアウト", for: .normal)
@@ -38,9 +45,10 @@ class HomeViewController: UIViewController {
         Firestore.fetchUserFromFirestore(uid: uid) { (user) in
             if let user = user {
                 self.user = user
-                
             }
         }
+        
+        fetchUsers()
         
     }
     
@@ -60,18 +68,28 @@ class HomeViewController: UIViewController {
     
     // MARK: - Methods
     
+    private func fetchUsers() {
+        HUD.show(.progress)
+        Firestore.fetchUsersFromFirestore { (users) in
+            HUD.hide()
+            self.users = users
+            print("ユーザー情報の取得に成功")
+            
+            self.users.forEach { (user) in
+                let card = CardView(user: user)
+                self.cardView.addSubview(card)
+                card.anchor(top: self.cardView.topAnchor, bottom: self.cardView.bottomAnchor, left: self.cardView.leftAnchor, right: self.cardView.rightAnchor)
+            }
+            
+            
+        }
+    }
+    
     private func setupLayout() {
         
         self.view.backgroundColor = .systemBackground
         
-        let topControlView = TopControlView()
-        topControlView.anchor(height:100)
-        
-        let cardView = CardView()
-        
-        let bottomControllView = BottomControlView()
-        bottomControllView.anchor(height:120)
-        
+
         let stackView = UIStackView(arrangedSubviews: [topControlView,cardView,bottomControllView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -79,10 +97,14 @@ class HomeViewController: UIViewController {
         self.view.addSubview(stackView)
         self.view.addSubview(logoutButton)
         
+        topControlView.anchor(height:100)
+        bottomControllView.anchor(height:120)
+
         stackView.anchor(top:view.safeAreaLayoutGuide.topAnchor,
                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
                          left: view.leftAnchor,
                          right: view.rightAnchor)
+        
         logoutButton.anchor(bottom:view.bottomAnchor,left:view.leftAnchor,bottomPadding: 10, leftPadding: 10)
         logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
         

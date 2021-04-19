@@ -59,3 +59,22 @@ extension UIView {
 
 
 }
+
+// MARK: - Animations
+extension UIView {
+    
+    func removeCardViewAnimation(x: CGFloat) {
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: []) {
+            let degree: CGFloat = x / 40       // 割る数を大きくすると、大きな円になる
+            let angle = degree * .pi / 180                  // degree度を回転　（例：35度＝35 * CGFloat.pi / 180）
+            let rotateTranselation = CGAffineTransform(rotationAngle: angle)
+            self.transform = rotateTranselation.translatedBy(x: x, y: 100)
+            self.layoutIfNeeded()
+        } completion: { (_) in
+            self.removeFromSuperview()
+        }
+        
+    }
+    
+}
