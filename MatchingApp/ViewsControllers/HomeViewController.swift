@@ -16,7 +16,7 @@ import RxCocoa
 class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    
+    // 自分のユーザー情報
     private var user: User?
     // 自分以外のユーザー情報
     private var users = [User]()
@@ -131,10 +131,12 @@ class HomeViewController: UIViewController {
     //
     private func setupBindings() {
         
+        // プロフィールボタンをタップ
         topControlView.profileButton.rx.tap
             .asDriver()
             .drive { [weak self] (_) in
                 let profile = ProfileViewController()
+                profile.user = self?.user
                 self?.present(profile, animated: true, completion: nil)
                 
             }

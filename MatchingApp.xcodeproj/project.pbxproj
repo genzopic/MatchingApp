@@ -20,6 +20,8 @@
 		7304C1322629247A00276DF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1312629247A00276DF0 /* RegisterViewController.swift */; };
 		7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1372629285D00276DF0 /* RegisterTextField.swift */; };
 		7304C13C26292A8400276DF0 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */; };
+		7315E868262E8B9800D3546A /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315E867262E8B9800D3546A /* ProfileTextField.swift */; };
+		7315E86D262E915A00D3546A /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315E86C262E915A00D3546A /* InfoCollectionViewCell.swift */; };
 		7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAF92625B89C0032C898 /* AppDelegate.swift */; };
 		7381FAFC2625B89C0032C898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAFB2625B89C0032C898 /* SceneDelegate.swift */; };
 		7381FAFE2625B89C0032C898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAFD2625B89C0032C898 /* HomeViewController.swift */; };
@@ -52,6 +54,8 @@
 		7304C1312629247A00276DF0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7304C1372629285D00276DF0 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
+		7315E867262E8B9800D3546A /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
+		7315E86C262E915A00D3546A /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		7381FAF62625B89C0032C898 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7381FAF92625B89C0032C898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7381FAFB2625B89C0032C898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,14 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		7315E86B262E914700D3546A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7315E86C262E915A00D3546A /* InfoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7381FAED2625B89C0032C898 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 		7381FAF82625B89C0032C898 /* MatchingApp */ = {
 			isa = PBXGroup;
 			children = (
+				7315E86B262E914700D3546A /* Cells */,
 				7389DCA7262D4B2A00A33B19 /* Models */,
 				7381FAF92625B89C0032C898 /* AppDelegate.swift */,
 				7381FAFB2625B89C0032C898 /* SceneDelegate.swift */,
@@ -197,6 +210,7 @@
 			children = (
 				7389DCB0262D97B400A33B19 /* ProfileImageView.swift */,
 				7389DCB4262D988800A33B19 /* ProfileLabel.swift */,
+				7315E867262E8B9800D3546A /* ProfileTextField.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -369,9 +383,11 @@
 				7381FAFC2625B89C0032C898 /* SceneDelegate.swift in Sources */,
 				7389DCB1262D97B400A33B19 /* ProfileImageView.swift in Sources */,
 				7389DCB5262D988800A33B19 /* ProfileLabel.swift in Sources */,
+				7315E868262E8B9800D3546A /* ProfileTextField.swift in Sources */,
 				7381FB152625C5A20032C898 /* BottomControlView.swift in Sources */,
 				7304C11D2627D89B00276DF0 /* CardView.swift in Sources */,
 				7389DCAD262D7AA800A33B19 /* ProfileViewController.swift in Sources */,
+				7315E86D262E915A00D3546A /* InfoCollectionViewCell.swift in Sources */,
 				738E443426293C74008FB8DC /* UIButton-Extension.swift in Sources */,
 				7381FB1A2625DCCE0032C898 /* UIImage-Extension.swift in Sources */,
 			);

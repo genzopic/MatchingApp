@@ -12,10 +12,10 @@ class ProfileImageView: UIImageView {
     init() {
         super.init(frame: .zero)
         
-        self.image = UIImage(named: "")
+        self.image = UIImage(named: "person")
         self.contentMode = .scaleAspectFill
+        self.clipsToBounds = true
         self.layer.cornerRadius = 90
-        
     }
     
     required init?(coder: NSCoder) {

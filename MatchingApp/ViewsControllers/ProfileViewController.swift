@@ -8,18 +8,22 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
-    let saveButoon = UIButton(type: .system).createProfileTopButton(title: "保存")
-    let logoutButton = UIButton(type: .system).createProfileTopButton(title: "ログアウト")
-    let profileImageView = ProfileImageView()
-    let nameLabel = ProfileLabel()
-    let profileEditButton = UIButton(type: .system).createProfileEditButton()
-    lazy var infoCollectionView: UICollectionView = {
+    //
+    var user: User?
+
+    // UI
+    private let saveButoon = UIButton(type: .system).createProfileTopButton(title: "保存")
+    private let logoutButton = UIButton(type: .system).createProfileTopButton(title: "ログアウト")
+    private let profileImageView = ProfileImageView()
+    private let nameLabel = ProfileLabel()
+    private let profileEditButton = UIButton(type: .system).createProfileEditButton()
+    private lazy var infoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let  cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.delegate = self
         cv.dataSource = self
-        cv.backgroundColor = .brown
+        cv.backgroundColor = .systemBackground
         cv.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         return cv
     }()
@@ -37,7 +41,7 @@ class ProfileViewController: UIViewController {
         profileImageView.image = UIImage(named: "person")
         nameLabel.text = "Test, 21"
         
-        
+        // viewの配置を設定
         self.view.addSubview(saveButoon)
         self.view.addSubview(logoutButton)
         self.view.addSubview(profileImageView)
@@ -52,6 +56,10 @@ class ProfileViewController: UIViewController {
         profileEditButton.anchor(top: profileImageView.topAnchor, right: profileImageView.rightAnchor, width: 60, height: 60)
         infoCollectionView.anchor(top: nameLabel.bottomAnchor,bottom: view.bottomAnchor, left:view.leftAnchor, right: view.rightAnchor, topPadding: 20)
 
+        // ユーザー情報を反映
+        nameLabel.text = user?.name
+        
+        
     }
     
 }
@@ -63,23 +71,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! InfoCollectionViewCell
+        cell.user = self.user
+//        cell.nameTextField.text = user?.name
+//        cell.emailTextField.text = user?.email
         return cell
     }
     
 }
 
-
-// TODO: 別のファイルに分ける
-class InfoCollectionViewCell: UICollectionViewCell {
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        
-        backgroundColor = .green
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
