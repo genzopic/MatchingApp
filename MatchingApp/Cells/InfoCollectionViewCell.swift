@@ -18,7 +18,7 @@ class InfoCollectionViewCell: UICollectionViewCell {
             emailTextField.text = user?.email
             regidenceTextField.text = user?.regidence
             hobbyTextField.text = user?.hobby
-            introductionTextField.text = user?.introduction            
+            introductionTextField.text = user?.introduction
         }
     }
     
@@ -57,12 +57,6 @@ class InfoCollectionViewCell: UICollectionViewCell {
         nameTextField.anchor(width: UIScreen.main.bounds.width - 40, height: 50)
         baseStackView.anchor(top: topAnchor,bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, topPadding: 10, leftPadding: 20, rightPadding: 20)
         
-//        nameTextField.delegate = self
-//        ageTextField.delegate = self
-//        emailTextField.delegate = self
-//        regidenceTextField.delegate = self
-//        hobbyTextField.delegate = self
-//        introductionTextField.delegate = self
         
     }
     
@@ -72,13 +66,3 @@ class InfoCollectionViewCell: UICollectionViewCell {
     
 }
 
-//extension InfoCollectionViewCell: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//    }
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//        user?.name = nameTextField.text ?? ""
-//        user?.email = emailTextField.text ?? ""
-//
-//    }
-//}
