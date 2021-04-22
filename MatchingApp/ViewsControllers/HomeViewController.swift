@@ -25,11 +25,11 @@ class HomeViewController: UIViewController {
     let topControlView = TopControlView()
     let cardView = UIView() // CardView()
     let bottomControllView = BottomControlView()
-    let logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("ログアウト", for: .normal)
-        return button
-    }()
+//    let logoutButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("ログアウト", for: .normal)
+//        return button
+//    }()
     
     // MARK: - Life Cicle Methods
     // 初期表示時
@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
             HUD.hide()
             self.users = users
             print("ユーザー情報の取得に成功")
-            
+            // ユーザー情報をカードにセットする
             self.users.forEach { (user) in
                 let card = CardView(user: user)
                 self.cardView.addSubview(card)
@@ -94,13 +94,12 @@ class HomeViewController: UIViewController {
         
         self.view.backgroundColor = .systemBackground
         
-
         let stackView = UIStackView(arrangedSubviews: [topControlView,cardView,bottomControllView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
-        self.view.addSubview(logoutButton)
+//        self.view.addSubview(logoutButton)
         
         topControlView.anchor(height:100)
         bottomControllView.anchor(height:120)
@@ -110,23 +109,23 @@ class HomeViewController: UIViewController {
                          left: view.leftAnchor,
                          right: view.rightAnchor)
         
-        logoutButton.anchor(bottom:view.bottomAnchor,left:view.leftAnchor,bottomPadding: 10, leftPadding: 10)
-        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
+//        logoutButton.anchor(bottom:view.bottomAnchor,left:view.leftAnchor,bottomPadding: 10, leftPadding: 10)
+//        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
         
     }
     
-    @objc private func tappedLogoutButton() {
-        do {
-            try Auth.auth().signOut()
-            let registerViewController = RegisterViewController()
-            let nav = UINavigationController(rootViewController: registerViewController)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true, completion: nil)
-
-        } catch {
-            print("ログアウトに失敗", error)
-        }
-    }
+//    @objc private func tappedLogoutButton() {
+//        do {
+//            try Auth.auth().signOut()
+//            let registerViewController = RegisterViewController()
+//            let nav = UINavigationController(rootViewController: registerViewController)
+//            nav.modalPresentationStyle = .fullScreen
+//            self.present(nav, animated: true, completion: nil)
+//
+//        } catch {
+//            print("ログアウトに失敗", error)
+//        }
+//    }
     
     //
     private func setupBindings() {

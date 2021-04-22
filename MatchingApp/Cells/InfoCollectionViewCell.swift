@@ -12,10 +12,15 @@ class InfoCollectionViewCell: UICollectionViewCell {
     var user: User? {
         didSet {
             nameTextField.text = user?.name
+            if let age = user?.age {
+                ageTextField.text = String(age)
+            }
             emailTextField.text = user?.email
+            regidenceTextField.text = user?.regidence
+            hobbyTextField.text = user?.hobby
+            introductionTextField.text = user?.introduction            
         }
     }
-    
     
     // MARK: UIViews
     let nameLabel = ProfileLabel(title: "名前")
@@ -52,6 +57,13 @@ class InfoCollectionViewCell: UICollectionViewCell {
         nameTextField.anchor(width: UIScreen.main.bounds.width - 40, height: 50)
         baseStackView.anchor(top: topAnchor,bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, topPadding: 10, leftPadding: 20, rightPadding: 20)
         
+//        nameTextField.delegate = self
+//        ageTextField.delegate = self
+//        emailTextField.delegate = self
+//        regidenceTextField.delegate = self
+//        hobbyTextField.delegate = self
+//        introductionTextField.delegate = self
+        
     }
     
     required init?(coder: NSCoder) {
@@ -59,3 +71,14 @@ class InfoCollectionViewCell: UICollectionViewCell {
     }
     
 }
+
+//extension InfoCollectionViewCell: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//    }
+//    func textFieldDidChangeSelection(_ textField: UITextField) {
+//        user?.name = nameTextField.text ?? ""
+//        user?.email = emailTextField.text ?? ""
+//
+//    }
+//}

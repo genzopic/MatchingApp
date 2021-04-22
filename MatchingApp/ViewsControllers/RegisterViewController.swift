@@ -33,6 +33,10 @@ class RegisterViewController: UIViewController {
         setupLayout()
         setupBindings()
         
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +44,10 @@ class RegisterViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     // MARK: - Methods
     private func setupGradientLayer() {
         
@@ -154,3 +162,11 @@ class RegisterViewController: UIViewController {
     
     
 }
+
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+
+}
+

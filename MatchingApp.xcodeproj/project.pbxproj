@@ -20,6 +20,7 @@
 		7304C1322629247A00276DF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1312629247A00276DF0 /* RegisterViewController.swift */; };
 		7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C1372629285D00276DF0 /* RegisterTextField.swift */; };
 		7304C13C26292A8400276DF0 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */; };
+		730B81F82631044300F558D4 /* CheckPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730B81F72631044200F558D4 /* CheckPermission.swift */; };
 		7315E868262E8B9800D3546A /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315E867262E8B9800D3546A /* ProfileTextField.swift */; };
 		7315E86D262E915A00D3546A /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315E86C262E915A00D3546A /* InfoCollectionViewCell.swift */; };
 		7381FAFA2625B89C0032C898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381FAF92625B89C0032C898 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		7304C1312629247A00276DF0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7304C1372629285D00276DF0 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		7304C13B26292A8400276DF0 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
+		730B81F72631044200F558D4 /* CheckPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPermission.swift; sourceTree = "<group>"; };
 		7315E867262E8B9800D3546A /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		7315E86C262E915A00D3546A /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		7381FAF62625B89C0032C898 /* MatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 				7381FB042625B89D0032C898 /* LaunchScreen.storyboard */,
 				7381FB072625B89D0032C898 /* Info.plist */,
 				7304C122262922DA00276DF0 /* GoogleService-Info.plist */,
+				730B81F72631044200F558D4 /* CheckPermission.swift */,
 			);
 			path = MatchingApp;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				7304C1322629247A00276DF0 /* RegisterViewController.swift in Sources */,
 				7304C13C26292A8400276DF0 /* RegisterTitleLabel.swift in Sources */,
 				73EDCA4E262BAE36000A3A92 /* LoginViewController.swift in Sources */,
+				730B81F82631044300F558D4 /* CheckPermission.swift in Sources */,
 				7381FAFE2625B89C0032C898 /* HomeViewController.swift in Sources */,
 				7304C1382629285D00276DF0 /* RegisterTextField.swift in Sources */,
 				738E443726293D84008FB8DC /* CardImageView.swift in Sources */,

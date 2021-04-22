@@ -29,6 +29,12 @@ class LoginViewController: UIViewController {
         setupLayout()
         setupBindings()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // MARK: - Methods
@@ -105,4 +111,11 @@ class LoginViewController: UIViewController {
     }
     
 
+}
+
+// MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }

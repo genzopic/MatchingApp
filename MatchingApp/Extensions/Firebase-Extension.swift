@@ -50,7 +50,7 @@ extension Auth {
 
 // MARK: - Firestore
 extension Firestore {
-    
+    // ユーザー情報を作成
     static func setUserDataToFirestore(uid: String, email: String, name: String?, completion: @escaping (Bool) -> ()) {
         guard let name = name else { return }
         let doc = [
@@ -62,6 +62,33 @@ extension Firestore {
         Firestore.firestore().collection("users").document(uid).setData(doc) { (err) in
             if let err = err {
                 print("set firestore err: ",err)
+                return
+            }
+            print("set firestore success uid: ", uid)
+            completion(true)
+        }
+        
+        
+    }
+    // Profileを更新
+    static func setUserDataToFirestore(uid: String, user: User, completion: @escaping (Bool) -> ()) {
+//        guard let name = user.name else { return }
+        
+        let doc = [
+            "name": user.name,
+            "email": user.email,
+            "age": user.age,
+            "hobby": user.hobby,
+            "introduction": user.introduction,
+            "regidence": user.regidence,
+            "creatAt": Timestamp(),
+            "profileImageUrl": user.profileImageUrl
+        ] as [String : Any]
+        
+        Firestore.firestore().collection("users").document(uid).setData(doc) { (err) in
+            if let err = err {
+                print("set firestore err: ",err)
+                completion(false)
                 return
             }
             print("set firestore success uid: ", uid)
@@ -116,6 +143,6 @@ extension Firestore {
         }
         
     }
- 
+     
 }
 
