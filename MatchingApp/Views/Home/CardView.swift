@@ -6,6 +6,8 @@
 //
 
 import UIKit
+//
+import Nuke
 
 class CardView: UIView {
     
@@ -34,7 +36,7 @@ class CardView: UIView {
         
     }
     
-    // したを少し黒くして文字を見やすくする
+    // イメージの下を少し黒くして文字を見やすくする
     private func setupGradientLayer() {
         gradientLayer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
         gradientLayer.locations = [0.3,1.1]
@@ -122,9 +124,19 @@ class CardView: UIView {
         nopeLabel.anchor(top:cardImageView.topAnchor,right: cardImageView.rightAnchor,width: 140, height: 55, topPadding: 25,rightPadding: 25)
 
         // ユーザー情報をViewに反映
-        nameLabel.text = user.name
-        introductionLabel.text = user.email
+        addUserToCardView(user: user)
         
+    }
+    
+    private func addUserToCardView(user: User) {
+        if let url = URL(string: user.profileImageUrl) {
+            Nuke.loadImage(with: url, into: cardImageView)
+        }
+        nameLabel.text = "\(user.name),\(user.age)"
+        regidenceLabel.text = user.regidence
+        hobbyLabel.text = user.hobby
+        introductionLabel.text = user.introduction
+
     }
     
     required init?(coder: NSCoder) {

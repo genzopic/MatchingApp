@@ -72,6 +72,9 @@ class LoginViewController: UIViewController {
                              leftPadding: 40,
                              rightPadding: 40)
         dontHaveAccountButton.anchor(top: baseStackView.bottomAnchor, centerX: self.view.centerXAnchor, topPadding: 20)
+        
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = .init(white: 0.7, alpha: 1)
 
     }
     //
@@ -117,5 +120,17 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let emailTextCount = emailTextField.text?.count ?? 0
+        let passwordTextCount = passwordTextField.text?.count ?? 0
+        if emailTextCount >= 5 && passwordTextCount >= 5 {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .rgb(red: 227, green: 48, blue: 78)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .init(white: 0.7, alpha: 1)
+        }
     }
 }

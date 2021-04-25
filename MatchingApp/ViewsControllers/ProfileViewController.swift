@@ -72,12 +72,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(profileEditButton)
         self.view.addSubview(infoCollectionView)
         
-        saveButoon.anchor(top: view.topAnchor, left: view.leftAnchor,topPadding: 20, leftPadding: 15)
-        logoutButton.anchor(top:view.topAnchor,right: view.rightAnchor, topPadding: 20, rightPadding: 15)
-        profileImageView.anchor(top:view.topAnchor, centerX: view.centerXAnchor, width: 180, height: 180, topPadding: 60)
+        saveButoon.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,topPadding: 20, leftPadding: 15)
+        logoutButton.anchor(top:view.safeAreaLayoutGuide.topAnchor,right: view.rightAnchor, topPadding: 20, rightPadding: 15)
+        profileImageView.anchor(top:view.safeAreaLayoutGuide.topAnchor, centerX: view.centerXAnchor, width: 180, height: 180, topPadding: 60)
         nameLabel.anchor(top: profileImageView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
         profileEditButton.anchor(top: profileImageView.topAnchor, right: profileImageView.rightAnchor, width: 60, height: 60)
-        infoCollectionView.anchor(top: nameLabel.bottomAnchor,bottom: view.bottomAnchor, left:view.leftAnchor, right: view.rightAnchor, topPadding: 20)
+        infoCollectionView.anchor(top: nameLabel.bottomAnchor,bottom: view.safeAreaLayoutGuide.bottomAnchor, left:view.leftAnchor, right: view.rightAnchor, topPadding: 20,bottomPadding: 20)
         
         // ユーザー情報を反映
         nameLabel.text = user?.name
@@ -152,10 +152,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             .drive { (_) in
                 do {
                     try Auth.auth().signOut()
-                    let registerViewController = RegisterViewController()
-                    let nav = UINavigationController(rootViewController: registerViewController)
-                    nav.modalPresentationStyle = .fullScreen
-                    self.present(nav, animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
 
                 } catch {
                     print("ログアウトに失敗", error)

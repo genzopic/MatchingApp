@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     // 自分以外のユーザー情報
     private var users = [User]()
     
-    // UI
+    // UIViews
     let topControlView = TopControlView()
     let cardView = UIView() // CardView()
     let bottomControllView = BottomControlView()
@@ -46,13 +46,15 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("HomeViewController-viewWillAppear")
+
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Firestore.fetchUserFromFirestore(uid: uid) { (user) in
             if let user = user {
                 self.user = user
             }
         }
-        
+        // 自分以外のユーザ情報を取得する
         fetchUsers()
         
     }
@@ -61,7 +63,7 @@ class HomeViewController: UIViewController {
     // viewDidLoadとは異なり毎回呼び出されます
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        print("HomeViewController-viewDidAppear")
         if Auth.auth().currentUser?.uid == nil {
             let registerViewController = RegisterViewController()
             let nav = UINavigationController(rootViewController: registerViewController)
@@ -72,7 +74,6 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
     private func fetchUsers() {
         HUD.show(.progress)
         Firestore.fetchUsersFromFirestore { (users) in
@@ -136,13 +137,20 @@ class HomeViewController: UIViewController {
             .drive { [weak self] (_) in
                 let profile = ProfileViewController()
                 profile.user = self?.user
+                profile.modalPresentationStyle = .fullScreen
                 self?.present(profile, animated: true, completion: nil)
-                
             }
             .disposed(by: disposeBag)
         
         
+        // リロードボタンをタップ
+        bottomControllView.reloadView.button?.addTarget(self, action: #selector(tappedReloadButton), for: .touchUpInside)
+        
+        
+    }
+    
+    @objc private func tappedReloadButton() {
+        print("reloadButton tapped!!!!")
     }
     
 }
-

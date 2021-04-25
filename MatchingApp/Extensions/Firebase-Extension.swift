@@ -7,6 +7,7 @@
 
 import FirebaseAuth
 import FirebaseFirestore
+import PKHUD
 
 // MARK: - Auth
 extension Auth {
@@ -18,6 +19,7 @@ extension Auth {
         Auth.auth().createUser(withEmail: email, password: password) { (auth, err) in
             if let err = err {
                 print("auth createUser err: ", err)
+                completion(false)
                 return
             }
             guard let uid = auth?.user.uid else { return }
@@ -62,6 +64,7 @@ extension Firestore {
         Firestore.firestore().collection("users").document(uid).setData(doc) { (err) in
             if let err = err {
                 print("set firestore err: ",err)
+                completion(false)
                 return
             }
             print("set firestore success uid: ", uid)
